@@ -141,7 +141,7 @@ def get_readable_message():
                 msg += f"\n<b>⏰ Tɪᴍᴇ Eʟᴀᴘsᴇᴅ: </b>{get_readable_time(time() - download.message.date.timestamp())}"
                 if hasattr(download, 'seeders_num'):
                     try:
-                        msg += f"\n<b>Seeders:</b> {download.seeders_num()} | <b>Leechers:</b> {download.leechers_num()}"
+                        msg += f"\n<b>⛈ Sᴇᴇᴅᴇʀs:</b> {download.seeders_num()} | <b>🔌 Lᴇᴇᴄʜᴇʀs:</b> {download.leechers_num()}"
                     except:
                         pass
 
@@ -155,7 +155,7 @@ def get_readable_message():
                 msg += f"\n<b>Size: </b>{download.size()}"
             if download.message.chat.type != 'private':
                 uname =download.message.from_user.first_name
-                msg += f"\n<b><a href='{download.message.link}'>Source</a>:</b> {uname} | <b>Id :</b> <code>{download.message.from_user.id}</code>"
+                msg += f"\n<b><a href='{download.message.link}'>♻️ Sᴏᴜʀᴄᴇ ♻️ </a>:</b> {uname} | <b>Id :</b> <code>{download.message.from_user.id}</code>"
             else:
                 msg += ''
             msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
