@@ -146,13 +146,13 @@ def get_readable_message():
                         pass
 
             elif download.status() == MirrorStatus.STATUS_SEEDING:
-                msg += f"\n<b>Size: </b>{download.size()}"
-                msg += f"\n<b>Speed: </b>{download.upload_speed()}"
-                msg += f" | <b>Uploaded: </b>{download.uploaded_bytes()}"
-                msg += f"\n<b>Ratio: </b>{download.ratio()}"
-                msg += f" | <b>Time: </b>{download.seeding_time()}"
+                msg += f"\n<b>💭 Sɪᴢᴇ: </b>{download.size()}"
+                msg += f"\n<b>🌀 Sᴘᴇᴇᴅ ⚡️: </b>{download.upload_speed()}"
+                msg += f" | <b>📤 Uᴘʟᴏᴀᴅᴇᴅ: </b>{download.uploaded_bytes()}"
+                msg += f"\n<b>🔏 Rᴀᴛɪᴏ: </b>{download.ratio()}"
+                msg += f" | <b>⏰ Tɪᴍᴇ: </b>{download.seeding_time()}"
             else:
-                msg += f"\n<b>Size: </b>{download.size()}"
+                msg += f"\n<b>💭 Sɪᴢᴇ: </b>{download.size()}"
             if download.message.chat.type != 'private':
                 uname =download.message.from_user.first_name
                 msg += f"\n<b><a href='{download.message.link}'>♻️ Sᴏᴜʀᴄᴇ ♻️ </a>:</b> {uname} | <b>Id :</b> <code>{download.message.from_user.id}</code>"
@@ -185,18 +185,18 @@ def get_readable_message():
                     up_speed += float(spd.split('K')[0]) * 1024
                 elif 'M' in spd:
                     up_speed += float(spd.split('M')[0]) * 1048576
-        bmsg = f"<b>CPU:</b> {cpu_percent()}% | <b>FREE:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
-        bmsg += f"\n<b>RAM:</b> {virtual_memory().percent}% | <b>UPTIME:</b> {get_readable_time(time() - botStartTime)}"
-        bmsg += f"\n<b>DL:</b> {get_readable_file_size(dl_speed)}/s | <b>UL:</b> {get_readable_file_size(up_speed)}/s"
+        bmsg = f"<b>🖥 Cᴘᴜ:</b> {cpu_percent()}% | <b>🗒 Fʀᴇᴇ:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
+        bmsg += f"\n<b>🪫 Rᴀᴍ:</b> {virtual_memory().percent}% | <b>📈 Uᴘᴛɪᴍᴇ:</b> {get_readable_time(time() - botStartTime)}"
+        bmsg += f"\n<b>🔺 Dʟ:</b> {get_readable_file_size(dl_speed)}/s | <b>🔻 UL:</b> {get_readable_file_size(up_speed)}/s"
         buttons = ButtonMaker()
         buttons.sbutton("Statistics", str(FOUR))
         sbutton = buttons.build_menu(1)
         if STATUS_LIMIT is not None and tasks > STATUS_LIMIT:
-            msg += f"<b>Page:</b> {PAGE_NO}/{pages} | <b>Tasks:</b> {tasks}\n"
+            msg += f"<b>📝 Pᴀɢᴇ:</b> {PAGE_NO}/{pages} | <b>📚 Tᴀsᴋs:</b> {tasks}\n"
             buttons = ButtonMaker()
-            buttons.sbutton("Previous", "status pre")
-            buttons.sbutton("Next", "status nex")
-            buttons.sbutton("Statistics", str(FOUR))
+            buttons.sbutton("Pʀᴇᴠɪᴏᴜs", "status pre")
+            buttons.sbutton("Nᴇxᴛ", "status nex")
+            buttons.sbutton("Sᴛᴀᴛɪsᴛɪᴄs", str(FOUR))
             button = buttons.build_menu(2)
             return msg + bmsg, button
         return msg + bmsg, sbutton
@@ -337,10 +337,10 @@ def bot_sys_stats():
             elif 'MB/s' in spd:
                 upspeed_bytes += float(spd.split('M')[0]) * 1048576
     stats = f"""
-USED : {used} | FREE :{free}
-SENT : {sent} | RECV : {recv}\n
-DL: {num_active} | UP : {num_upload} | SPLIT : {num_split}
-ZIP : {num_archi} | UNZIP : {num_extract} | TOTAL : {tasks} 
+🗒 Usᴇᴅ : {used} | 🗒Fʀᴇᴇ :{free}  
+🔸 Sᴇɴᴛ : {sent} |🔹 Rᴇᴠᴄ : {recv}\n
+🔺 Dʟ : {num_active} |🔺 Up : {num_upload} |🔺 Sᴘɪʟᴛ : {num_split}
+🔻 Zɪᴘ : {num_archi} |🔻 Uɴᴢɪᴘ : {num_extract} |🔻 Tᴏᴛᴀʟ : {tasks} 
 """
     return stats
 dispatcher.add_handler(
