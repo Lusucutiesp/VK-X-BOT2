@@ -11,7 +11,7 @@ from bot.helper.telegram_helper import button_build
 def list_buttons(update, context):
     user_id = update.message.from_user.id
     if len(context.args) == 0:
-        return sendMessage('Send a search key along with command', context.bot, update.message)
+        return sendMessage('Sᴇɴᴅ ᴀ sᴇᴀʀᴄʜ ᴋᴇʏ ᴀʟᴏɴɢ ᴡɪᴛʜ ᴄᴏᴍᴍᴀɴᴅ 🔰', context.bot, update.message)
     buttons = button_build.ButtonMaker()
     buttons.sbutton("Folders", f"types {user_id} folders")
     buttons.sbutton("Files", f"types {user_id} files")
@@ -31,10 +31,10 @@ def select_type(update, context):
         return query.answer(text="Not Yours!", show_alert=True)
     elif data[2] == 'cancel':
         query.answer()
-        return editMessage("list has been canceled!", msg)
+        return editMessage("ʟɪsᴛ ʜᴀs ʙᴇᴇɴ ᴄᴀɴᴄᴇʟᴇᴅ!", msg)
     query.answer()
     item_type = data[2]
-    editMessage(f"<b>Searching for <i>{key}</i></b>", msg)
+    editMessage(f"<b>Sᴇᴀʀᴄʜɪɴɢ ғᴏʀ <i>{key}</i></b>", msg)
     Thread(target=_list_drive, args=(context.bot, key, msg, item_type)).start()
 
 def _list_drive(bot, key, bmsg, item_type):
@@ -44,7 +44,7 @@ def _list_drive(bot, key, bmsg, item_type):
     if button:
         editMessage(msg, bmsg, button)
     else:
-        editMessage(f'No result found for <i>{key}</i>', bmsg)
+        editMessage(f'🥺 Nᴏ ʀᴇsᴜʟᴛ ғᴏᴜɴᴅ ғᴏʀ <i>{key}</i>', bmsg)
 
 list_handler = CommandHandler(BotCommands.ListCommand, list_buttons, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 list_type_handler = CallbackQueryHandler(select_type, pattern="types", run_async=True)
