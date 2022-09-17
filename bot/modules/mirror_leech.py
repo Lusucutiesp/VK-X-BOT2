@@ -25,7 +25,7 @@ def _mirror_leech(bot, message, isZip=False, extract=False, isQbit=False, isLeec
     buttons = ButtonMaker()
     if BOT_PM and message.chat.type != 'private':
         try:
-            msg1 = f'Added your Requested link to Download\n'
+            msg1 = f'Aᴅᴅᴇᴅ ʏᴏᴜʀ Rᴇǫᴜᴇsᴛᴇᴅ ʟɪɴᴋ ᴛᴏ Dᴏᴡɴʟᴏᴀᴅ\n'
             send = bot.sendMessage(message.from_user.id, text=msg1)
             send.delete()
         except Exception as e:
@@ -34,8 +34,8 @@ def _mirror_leech(bot, message, isZip=False, extract=False, isQbit=False, isLeec
             b_uname = bot_d.username
             uname = message.from_user.mention_html(message.from_user.first_name)
             botstart = f"http://t.me/{b_uname}"
-            buttons.buildbutton("Click Here to Start Me", f"{botstart}")
-            startwarn = f"<b>Dear {uname}, Start me in PM to use me.</b>"
+            buttons.buildbutton("Cʟɪᴄᴋ Hᴇʀᴇ ᴛᴏ Sᴛᴀʀᴛ Mᴇ", f"{botstart}")
+            startwarn = f"<b>Dear {uname}, Sᴛᴀʀᴛ ᴍᴇ ɪɴ PM ᴛᴏ ᴜsᴇ ᴍᴇ.</b>"
             mesg = sendMarkup(startwarn, bot, message, buttons.build_menu(2))
             sleep(15)
             mesg.delete()
