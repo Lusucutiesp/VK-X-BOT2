@@ -36,7 +36,7 @@ def cancel_mirror(update, context):
         return
 
     if OWNER_ID != user_id and dl.message.from_user.id != user_id and user_id not in SUDO_USERS:
-        sendMessage("This task is not for you!", context.bot, update.message)
+        sendMessage("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴜsᴇ ᴛʜᴇsᴇ ʙᴜᴛᴛᴏɴs ❌", context.bot, update.message)
         return
 
     dl.download().cancel_download()
@@ -53,7 +53,7 @@ def cancell_all_buttons(update, context):
     with download_dict_lock:
         count = len(download_dict)
     if count == 0:
-        sendMessage("No active tasks!", context.bot, update.message)
+        sendMessage("Nᴏ Aᴄᴛɪᴠᴇ Tᴀsᴋs!", context.bot, update.message)
         return
     buttons = button_build.ButtonMaker()
     buttons.sbutton("Downloading", f"canall {MirrorStatus.STATUS_DOWNLOADING}")
@@ -83,7 +83,7 @@ def cancel_all_update(update, context):
             return
         cancel_all(data[1])
     else:
-        query.answer(text="You don't have permission to use these buttons!", show_alert=True)
+        query.answer(text="Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴜsᴇ ᴛʜᴇsᴇ ʙᴜᴛᴛᴏɴs ❌", show_alert=True)
 
 
 
