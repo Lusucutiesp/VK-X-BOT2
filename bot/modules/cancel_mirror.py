@@ -17,7 +17,7 @@ def cancel_mirror(update, context):
         gid = context.args[0]
         dl = getDownloadByGid(gid)
         if not dl:
-            sendMessage(f"GID: <code>{gid}</code> Not Found.", context.bot, update.message)
+            sendMessage(f"GID: <code>{gid}</code> Nᴏᴛ Fᴏᴜɴᴅ.", context.bot, update.message)
             return
     elif update.message.reply_to_message:
         mirror_message = update.message.reply_to_message
@@ -27,7 +27,7 @@ def cancel_mirror(update, context):
             else:
                 dl = None
         if not dl:
-            sendMessage("This is not an active task!", context.bot, update.message)
+            sendMessage("Tʜɪs ɪs ɴᴏᴛ ᴀɴ ᴀᴄᴛɪᴠᴇ ᴛᴀsᴋ ‼️", context.bot, update.message)
             return
     elif len(context.args) == 0:
         msg = f"Reply to an active <code>/{BotCommands.MirrorCommand}</code> message which \
