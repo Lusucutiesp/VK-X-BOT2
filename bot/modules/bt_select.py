@@ -23,7 +23,7 @@ def select(update, context):
             else:
                 dl = None
         if not dl:
-            sendMessage("This is not an active task!", context.bot, update.message)
+            sendMessage("Tʜɪs ɪs ɴᴏᴛ ᴀɴ ᴀᴄᴛɪᴠᴇ ᴛᴀsᴋ ‼️", context.bot, update.message)
             return
     elif len(context.args) == 0:
         msg = "Reply to an active /cmd which was used to start the qb-download or add gid along with cmd\n\n"
@@ -33,7 +33,7 @@ def select(update, context):
         return
 
     if OWNER_ID != user_id and dl.message.from_user.id != user_id and user_id not in SUDO_USERS:
-        sendMessage("This task is not for you!", context.bot, update.message)
+        sendMessage("Tʜɪs ᴛᴀsᴋ ɪs ɴᴏᴛ ғᴏʀ ʏᴏᴜ ‼️", context.bot, update.message)
         return
     if dl.status() not in [MirrorStatus.STATUS_DOWNLOADING, MirrorStatus.STATUS_PAUSED, MirrorStatus.STATUS_WAITING]:
         sendMessage('Task should be in downloading status or in pause status incase message deleted by wrong or in queued status incase you used torrent file!', context.bot, update.message)
